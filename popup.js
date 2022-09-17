@@ -26,13 +26,13 @@ function setPageBackgroundColor() {
     //     style = document.createElement('style');
 
     var css = " html {-webkit-filter: invert(100%)!important;background-color: black!important;}" +
-        " #theater-background {background-color:white;}" + // Fix for youtube theater mode
         " img {-webkit-filter: invert(100%)!important;} " +
         " iframe {-webkit-filter: invert(100%)!important;} " +
         " object {-webkit-filter: invert(100%)!important;} " +
         " video {-webkit-filter: invert(100%)!important;} " +
         " png {-webkit-filter: invert(100%)!important;} " +
-        // " * {color:#663355;} " +
+        " jpg {-webkit-filter: invert(100%)!important;} " +
+        " img {-webkit-filter: invert(100%)} " +
         // Github red&green code review
         " .blob-num-deletion, .blob-code-deletion {-webkit-filter: invert(100%)!important;opacity:0.3;} " +
         " .blob-num-addition, .blob-code-addition {-webkit-filter: invert(100%)!important;opacity:0.3;} " +
@@ -46,7 +46,22 @@ function setPageBackgroundColor() {
     // a hack, so you can "invert back" clicking the bookmarklet again
     if (!window.counter) { window.counter = 1; } else {
         window.counter++;
-        if (window.counter % 2 == 0) { var css = 'html {-webkit-filter: invert(0%); -moz-filter:    invert(0%); -o-filter: invert(0%); -ms-filter: invert(0%); }' }
+        if (window.counter % 2 == 0) {
+            var css = "  html {-webkit-filter: invert(0%)!important;background-color: black!important;}" +
+                " img {-webkit-filter: invert(0%)!important;} " +
+                " iframe {-webkit-filter: invert(0%)!important;} " +
+                " object {-webkit-filter: invert(0%)!important;} " +
+                " video {-webkit-filter: invert(0%)!important;} " +
+                " png {-webkit-filter: invert(0%)!important;} " +
+                " jpg {-webkit-filter: invert(0%)!important;} " +
+                " img {-webkit-filter: invert(0%)} " +
+                // Github red&green code review
+                " .blob-num-deletion, .blob-code-deletion {-webkit-filter: invert(0%)!important;opacity:0.3;} " +
+                " .blob-num-addition, .blob-code-addition {-webkit-filter: invert(0%)!important;opacity:0.3;} " +
+                // Jira red&green code review
+                " .added.modified.line {-webkit-filter: invert(0%)!important;} " +
+                " .removed.modified.line {-webkit-filter: invert(0%)!important;}"
+        }
     };
 
     style.type = 'text/css';
