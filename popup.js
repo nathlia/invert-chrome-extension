@@ -17,10 +17,28 @@ changeColor.addEventListener("click", async() => {
 
 function setPageBackgroundColor() {
     // the css we are going to inject
-    var css = 'html {-webkit-filter: invert(100%);' +
-        '-moz-filter: invert(100%);' +
-        '-o-filter: invert(100%);' +
-        '-ms-filter: invert(100%); }',
+    // var css = 'html {-webkit-filter: invert(100%);' +
+    //     '-moz-filter: invert(100%);' +
+    //     '-o-filter: invert(100%);' +
+    //     '-ms-filter: invert(100%); }',
+
+    //     head = document.getElementsByTagName('head')[0],
+    //     style = document.createElement('style');
+
+    var css = " html {-webkit-filter: invert(100%)!important;background-color: black!important;}" +
+        " #theater-background {background-color:white;}" + // Fix for youtube theater mode
+        " img {-webkit-filter: invert(100%)!important;} " +
+        " iframe {-webkit-filter: invert(100%)!important;} " +
+        " object {-webkit-filter: invert(100%)!important;} " +
+        " video {-webkit-filter: invert(100%)!important;} " +
+        " png {-webkit-filter: invert(100%)!important;} " +
+        // " * {color:#663355;} " +
+        // Github red&green code review
+        " .blob-num-deletion, .blob-code-deletion {-webkit-filter: invert(100%)!important;opacity:0.3;} " +
+        " .blob-num-addition, .blob-code-addition {-webkit-filter: invert(100%)!important;opacity:0.3;} " +
+        // Jira red&green code review
+        " .added.modified.line {-webkit-filter: invert(100%)!important;} " +
+        " .removed.modified.line {-webkit-filter: invert(100%)!important;}",
 
         head = document.getElementsByTagName('head')[0],
         style = document.createElement('style');
